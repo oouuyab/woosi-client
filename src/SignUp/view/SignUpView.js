@@ -6,9 +6,20 @@ const flexColumn = css`
   flex-direction: column;
 `;
 
-export default function SignUpView({ register, handleSubmit, isSubmitting, pw, onSubmit, errors }) {
+export default function SignUpView({
+  register,
+  handleSubmit,
+  isSubmitting,
+  pw,
+  onSubmit,
+  errors,
+  isCertHpNo,
+  onClickSendCertCode,
+  onClickCertHpNo,
+}) {
   return (
     <article>
+      <div id='recaptcha-container'></div>
       <form className={flexColumn} onSubmit={(event) => event.preventDefault}>
         {/* email */}
         <label htmlFor='email'>이메일</label>
@@ -44,9 +55,22 @@ export default function SignUpView({ register, handleSubmit, isSubmitting, pw, o
         {/* hpNo */}
         <label htmlFor='hpNo'>휴대전화 번호</label>
         <input id='hpNo' type='tel' placeholder='휴대전화 번호를 입력해주세요' {...register('hpNo')} />
+        <button type='button' onClick={onClickSendCertCode}>
+          코드 전송
+        </button>
         {/* certHpNo */}
-        {/* <label></label>
-      <input /> */}
+        <label htmlFor='hpNoCert'>휴대전화 인증</label>
+        <input
+          disabled={isCertHpNo}
+          id='hpNoCert'
+          type='text'
+          placeholder='인증코드를 입력해주세요'
+          {...register('code')}
+        />
+        <button disabled={isCertHpNo} type='button' onClick={onClickCertHpNo}>
+          인증
+        </button>
+        <input />
         <input type='submit' disabled={isSubmitting} onClick={handleSubmit(onSubmit)} />
       </form>
     </article>

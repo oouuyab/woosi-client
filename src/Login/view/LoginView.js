@@ -9,7 +9,6 @@ export default function LoginView() {
         <label htmlFor='pw'>pw</label>
         <input id='pw' type='password' />
       </section>
-      <section></section>
     </article>
   );
 }
