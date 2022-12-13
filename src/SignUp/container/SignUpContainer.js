@@ -50,7 +50,7 @@ export default function SignUpContainer() {
       .then(() => {
         window.location.href = '/login';
       })
-      .catch((err) => alert(err));
+      .catch((err) => Util.axiosErrorHandler(err));
   };
 
   const onClickSendCertCode = () => {
