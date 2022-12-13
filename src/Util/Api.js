@@ -7,3 +7,10 @@ export const createUser = (data) =>
     method: 'POST',
     url: Constant.API_HOST + '/user',
   });
+
+export const login = (data) =>
+  axios({
+    data,
+    method: 'POST',
+    url: Constant.API_HOST + '/auth/login',
+  });
