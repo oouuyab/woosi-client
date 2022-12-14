@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import SignUpView from '../view/SignUpView';
-import * as API from '../../util/Api';
-import * as Util from '../../util/Util';
+import * as API from '../../Util/Api';
+import * as Util from '../../Util/Util';
 import firebaseConfig from '../../Common/FirebaseConfig';
 
 import * as FirebaseApp from 'firebase/app';
